@@ -21,7 +21,9 @@
 
       :host(:focus) {
         outline: none;
+        border-bottom: 7px solid #dde2de!important;
         background-color: var(--tabs-focus-background-color, --dark-primary-color);
+        
       }
 
       :host([link]) {
@@ -40,7 +42,7 @@
 
         @apply(--tab-content);
       }
-
+      
       :host(:not(.iron-selected)) > .tab-content {
         opacity: 0.8;
 
@@ -57,6 +59,7 @@
 
         height: 100%;
       }
+
     </style>
 
     <!-- write your template here -->
