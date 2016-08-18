@@ -1,0 +1,63 @@
+{
+  "name": "koapp-theme-food",
+  "identifier": "koapp-theme-food",
+  "description": {
+    "en-US" : "food"
+  },
+  "version": "0.0.0",
+  "author": "DavidAR, <davidarochenar@gmail.com>",
+  "category": [
+    ""
+  ],
+  "price": 0,
+  "platforms": [
+    "android",
+    "ios",
+    "windows"
+  ],
+  "showOn": {
+    "market": true
+  },
+  "images" : {
+    "list" : "themes/koapp-theme-food/images/list.png",
+    "screenshots" : [
+      "themes/koapp-theme-food/images/screenshot01.png",
+      "themes/koapp-theme-food/images/screenshot02.png"
+    ],
+    "popover" : "themes/koapp-theme-food/images/popover.png",
+    "banner" : "themes/koapp-theme-food/images/banner.png"
+  },
+  "defaultConfig": {
+    "colors": {
+      "primaryTextColor": "#000000",
+      "primaryBackgroundColor": "#ffffff",
+      "secondaryTextColor": "#ffffff",
+      "disabledTextColor": "#cc440a",
+      "dividerColor": "#efefef",
+      "primaryColor": "#ff540e",
+      "lightPrimaryColor": "#ff6829",
+      "darkPrimaryColor": "#cc440a",
+      "accentColor": "#ff4081",
+      "lightAccentColor": "#ff6829",
+      "darkAccentColor": "#cc440a",
+      "errorColor": "#ff540e",
+      "backgroundColor": "#ffffff"
+    },
+    "images": {
+      "background": ""
+    },
+    "fonts": {
+      "primaryFontFamily": {
+        "name": "Helvetica",
+        "url": "https://fonts.googleapis.com/css?family=Helvetica"
+      },
+      "titleFontFamily": {
+        "name": "Helvetica",
+        "url": "https://fonts.googleapis.com/css?family=Helvetica"
+      }
+    },
+    "menu": "polymermenu"
+  },
+  "subscription": false,
+  "main": "themes/koapp-theme-food/koapp-theme-food.html"
+}

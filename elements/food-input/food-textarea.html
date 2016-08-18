@@ -1,0 +1,57 @@
+<link rel="import" href="../../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+<link rel="import" href="../../../../bower_components/koa-behaviors/koa-textarea-behavior.html">
+<link rel="import" href="../../styles/default-theme.html">
+<link rel="import" href="food-input-char-counter.html">
+<link rel="import" href="food-input-container.html">
+<link rel="import" href="food-input-error.html">
+
+<dom-module id="food-textarea">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <!-- write your template here -->
+    <food-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+      <label hidden$="[[!label]]">[[label]]</label>
+
+      <iron-autogrow-textarea id="input"
+        bind-value="{{value}}"
+        disabled$="[[disabled]]"
+        autocomplete$="[[autocomplete]]"
+        autofocus$="[[autofocus]]"
+        inputmode$="[[inputmode]]"
+        name$="[[name]]"
+        placeholder$="[[placeholder]]"
+        readonly$="[[readonly]]"
+        required$="[[required]]"
+        maxlength$="[[maxlength]]"
+        autocapitalize$="[[autocapitalize]]"
+        rows$="[[rows]]"
+        max-rows$="[[maxRows]]"
+        on-change="_onChange"></iron-autogrow-textarea>
+
+      <template is="dom-if" if="[[errorMessage]]">
+        <food-input-error>[[errorMessage]]</food-input-error>
+      </template>
+
+      <template is="dom-if" if="[[charCounter]]">
+        <food-input-char-counter></food-input-char-counter>
+      </template>
+    </food-input-container>
+    <!-- end template -->
+  </template>
+
+  <script>
+    Polymer({
+      is: 'food-textarea',
+
+      behaviors: [
+        Polymer.KoaTextareaBehavior
+      ]
+    });
+  </script>
+</dom-module>

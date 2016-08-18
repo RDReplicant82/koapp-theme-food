@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title>food-menu demo</title>
+
+    <script src="../../../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../food-item/food-item.html">
+    <link rel="import" href="../food-menu.html">
+    <link rel="import" href="../food-submenu.html">
+
+    <style is="custom-style">
+      .horizontal-section {
+        padding: 0 !important;
+      }
+
+      .avatar {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #ccc;
+      }
+
+      food-item {
+        --item: {
+          cursor: pointer;
+        };
+      }
+
+      .sublist food-item {
+        padding-left: 30px;
+      }
+
+      .sublist2 food-item {
+        padding-left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Standard</h4>
+        <div class="horizontal-section">
+          <food-menu>
+            <food-item>Inbox</food-item>
+            <food-item>Starred</food-item>
+            <food-item>Sent mail</food-item>
+            <food-item>Drafts</food-item>
+          </food-menu>
+        </div>
+      </div>
+
+      <div>
+        <h4>Pre-selected</h4>
+        <div class="horizontal-section">
+          <food-menu selected="0">
+            <food-item>Inbox</food-item>
+            <food-item disabled>Starred</food-item>
+            <food-item>Sent mail</food-item>
+            <food-item>Drafts</food-item>
+          </food-menu>
+        </div>
+      </div>
+
+      <div>
+        <h4>Multi-select</h4>
+        <div class="horizontal-section">
+          <food-menu multi>
+            <food-item>Bold</food-item>
+            <food-item>Italic</food-item>
+            <food-item>Underline</food-item>
+            <food-item>Strikethrough</food-item>
+          </food-menu>
+        </div>
+      </div>
+
+      <div>
+        <h4>Sub-menu</h4>
+        <div class="horizontal-section">
+          <food-menu attr-for-item-title="label" multi>
+            <food-submenu label="food-menu">
+              <food-item class="menu-trigger">food-menu</food-item>
+              <food-menu class="menu-content sublist" multi>
+                <food-submenu label="Properties">
+                  <food-item class="menu-trigger">Properties</food-item>
+                  <food-menu class="menu-content sublist2">
+                    <food-item>focusedItem</food-item>
+                    <food-item>attrForItemTitle</food-item>
+                  </food-menu>
+                </food-submenu>
+                <food-submenu label="Methods">
+                  <food-item class="menu-trigger">Methods</food-item>
+                  <food-menu class="menu-content sublist2">
+                    <food-item>select(value)</food-item>
+                  </food-menu>
+                </food-submenu>
+            </food-menu>
+          </food-submenu>
+
+          <food-submenu label="food-submenu">
+            <food-item class="menu-trigger">food-submenu</food-item>
+            <food-menu class="menu-content sublist">
+              <food-submenu label="Properties">
+                <food-item class="menu-trigger">Properties</food-item>
+                <food-menu class="menu-content sublist2">
+                  <food-item>opened</food-item>
+                </food-menu>
+                </food-submenu>
+                <food-submenu label="Methods">
+                  <food-item class="menu-trigger">Methods</food-item>
+                  <food-menu class="menu-content sublist2">
+                    <food-item>open()</food-item>
+                    <food-item>close()</food-item>
+                    <food-item>toggle()</food-item>
+                  </food-menu>
+              </food-submenu>
+            </food-menu>
+          </food-submenu>
+
+            <food-submenu label="Unavailable" disabled>
+              <food-item class="menu-trigger">Unavailable</food-item>
+              <food-menu class="menu-content sublist">
+                <food-item>Unavailable 1</food-item>
+                <food-item>Unavailable 2</food-item>
+              </food-menu>
+            </food-submenu>
+          </food-menu>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

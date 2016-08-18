@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title>food-dialog demo</title>
+
+    <script src="../../../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../../../../bower_components/neon-animation/neon-animations.html">
+    <link rel="import" href="../../../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../food-button/food-button.html">
+    <link rel="import" href="../../food-dropdown-menu/food-dropdown-menu.html">
+    <link rel="import" href="../../food-item/food-item.html">
+    <link rel="import" href="../../food-menu/food-menu.html">
+    <link rel="import" href="../food-dialog.html">
+
+    <style is="custom-style">
+      section {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+
+      section > food-button {
+        background-color: var(--google-grey-300);
+        padding: 5px;
+      }
+
+      section > food-button:hover {
+        background-color: var(--paper-light-blue-200);
+        padding: 5px;
+      }
+
+      food-dialog.colored {
+        border: 2px solid;
+        border-color: var(--paper-green-500);
+        background-color: var(--paper-light-green-50);
+        color: var(--paper-green-500);
+      }
+
+      food-dialog.size-position {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        width: 300px;
+        height: 300px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section onclick="clickHandler(event)">
+      <h4>Dialog layouts</h4>
+
+      <food-button data-dialog="dialog">plain dialog</food-button>
+      <food-button data-dialog="actions">dialog with actions</food-button>
+      <food-button data-dialog="modal">modal dialog</food-button>
+      <food-button data-dialog="dropdown">dialog with dropdown</food-button>
+      <food-button data-dialog="nested">dialog with nested dialog</food-button>
+
+      <food-dialog id="dialog">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </food-dialog>
+
+      <food-dialog id="actions">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="buttons">
+          <food-button >More Info...</food-button>
+          <food-button dialog-dismiss>Decline</food-button>
+          <food-button dialog-confirm autofocus>Accept</food-button>
+        </div>
+      </food-dialog>
+
+      <food-dialog id="modal" modal>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="buttons">
+          <food-button dialog-confirm autofocus>Tap me to close</food-button>
+        </div>
+      </food-dialog>
+
+      <food-dialog id="dropdown">
+        <h2>Dialog Title</h2>
+        <food-dropdown-menu label="Value">
+          <food-menu class="dropdown-content">
+            <food-item>1</food-item>
+            <food-item>2</food-item>
+            <food-item>3</food-item>
+            <food-item>4</food-item>
+            <food-item>5</food-item>
+            <food-item>6</food-item>
+            <food-item>7</food-item>
+            <food-item>8</food-item>
+            <food-item>9</food-item>
+            <food-item>10</food-item>
+          </food-menu>
+        </food-dropdown-menu>
+      </food-dialog>
+
+      <food-dialog id="nested">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="buttons">
+          <food-button data-dialog="innerDialog">Open nested dialog</food-button>
+        </div>
+      </food-dialog>
+
+      <food-dialog id="innerDialog">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </food-dialog>
+    </section>
+
+    <section onclick="clickHandler(event)">
+      <h4>Custom styling</h4>
+      <food-button data-dialog="colors">colors</food-button>
+      <food-button data-dialog="position">size &amp; position</food-button>
+
+      <food-dialog id="colors" class="colored">
+        <h2>Custom Colors</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </food-dialog>
+
+      <food-dialog id="position" class="size-position">
+        <h2>Custom Size &amp; Position</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </food-dialog>
+    </section>
+
+    <section onclick="clickHandler(event)">
+      <h4>Transitions</h4>
+      <food-button data-dialog="animated">transitions</food-button>
+      <food-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </food-dialog>
+    </section>
+
+    <script>
+      // eslint-disable-next-line no-unused-vars
+      function clickHandler(e) {
+        var button = e.target;
+        while (!button.hasAttribute('data-dialog') && button !== document.body) {
+          button = button.parentElement;
+        }
+
+        if (!button.hasAttribute('data-dialog')) {
+          return;
+        }
+
+        var id = button.getAttribute('data-dialog');
+        var dialog = document.getElementById(id);
+        if (dialog) {
+          dialog.open();
+        }
+      }
+    </script>
+  </body>
+</html>
