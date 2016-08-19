@@ -31,16 +31,16 @@
     "colors": {
       "primaryTextColor": "#000000",
       "primaryBackgroundColor": "#ffffff",
-      "secondaryTextColor": "#ffffff",
-      "disabledTextColor": "#cc440a",
+      "secondaryTextColor": "#6e6e6e",
+      "disabledTextColor": "#dde2de",
       "dividerColor": "#dde2de",
       "primaryColor": "#ff540e",
-      "lightPrimaryColor": "#ff6829",
+      "lightPrimaryColor": "#faac58",
       "darkPrimaryColor": "#cc440a",
       "accentColor": "#ff4081",
       "lightAccentColor": "#ff6829",
-      "darkAccentColor": "#cc440a",
-      "errorColor": "#ff540e",
+      "darkAccentColor": "#1a1a1a",
+      "errorColor": "#ff0000",
       "backgroundColor": "#ffffff"
     },
     "images": {
@@ -48,12 +48,12 @@
     },
     "fonts": {
       "primaryFontFamily": {
-        "name": "Helvetica",
-        "url": "https://fonts.googleapis.com/css?family=Helvetica"
+        "name": "Roboto",
+        "url": "https://fonts.googleapis.com/css?family=Roboto"
       },
       "titleFontFamily": {
-        "name": "Helvetica",
-        "url": "https://fonts.googleapis.com/css?family=Helvetica"
+        "name": "Roboto",
+        "url": "https://fonts.googleapis.com/css?family=Roboto"
       }
     },
     "menu": "polymermenu"
