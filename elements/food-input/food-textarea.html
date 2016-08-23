@@ -12,10 +12,17 @@
       :host {
         display: block;
       }
+      :host.has-value label {
+        display: none;
+      }
+
+      :host([focused]) label{
+       display: none;
+     }
     </style>
 
     <!-- write your template here -->
-    <food-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+    <food-input-container on-change="onchangeHandler" auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
       <label hidden$="[[!label]]">[[label]]</label>
 
       <iron-autogrow-textarea id="input"
@@ -48,7 +55,14 @@
   <script>
     Polymer({
       is: 'food-textarea',
-
+      onchangeHandler: function(e) {
+        if(this.$.input.value != "") {
+          this.classList.add('has-value');
+        }
+        else {
+          this.classList.remove('has-value');
+        }
+      },
       behaviors: [
         Polymer.KoaTextareaBehavior
       ]

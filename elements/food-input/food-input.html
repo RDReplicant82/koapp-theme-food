@@ -13,6 +13,14 @@
         display: block;
       }
 
+      :host.has-value label {
+        display: none;
+      }
+
+      :host([focused]) label{
+       display: none;
+     }
+
       input::-webkit-input-placeholder {
         color: var(--input-container-color, --secondary-text-color);
       }
@@ -28,10 +36,14 @@
       input:-ms-input-placeholder {
         color: var(--input-container-color, --secondary-text-color);
       }
+      food-input-char-counter {
+        margin-top: 8px;
+      }
+
     </style>
 
     <!-- write your template here -->
-    <food-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+    <food-input-container on-change="onchangeHandler" auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
       <label hidden$="[[!label]]">[[label]]</label>
 
       <content select="[prefix]"></content>
@@ -69,7 +81,8 @@
         autosave$="[[autosave]]"
         results$="[[results]]"
         accept$="[[accept]]"
-        multiple$="[[multiple]]">
+        multiple$="[[multiple]]"
+        >
 
       <content select="[suffix]"></content>
 
@@ -87,7 +100,14 @@
   <script>
     Polymer({
       is: 'food-input',
-
+      onchangeHandler: function(e) {
+        if(this.$.input.value != "") {
+          this.classList.add('has-value');
+        }
+        else {
+          this.classList.remove('has-value');
+        }
+      },
       behaviors: [
         Polymer.KoaInputBehavior
       ]
