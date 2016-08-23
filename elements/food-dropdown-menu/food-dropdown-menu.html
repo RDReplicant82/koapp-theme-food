@@ -49,12 +49,14 @@
 
         @apply(--dropdown-menu-icon);
       }
+     }
     </style>
 
     <!-- write your template here -->
     <!-- this div fulfills an a11y requirement for combobox, do not remove -->
     <div role="button"></div>
     <food-menu-button
+      on-click="onclickHandler"
       id="menuButton"
       vertical-align="[[verticalAlign]]"
       horizontal-align="[[horizontalAlign]]"
@@ -90,7 +92,11 @@
       behaviors: [
         Polymer.KoaDropdownMenuBehavior
       ],
-
+      onclickHandler: function(e) {
+          var changeDrop = this.$.menuButton;
+          var changed = changeDrop.getElementsByTagName('food-input');
+          changed[0].label = "";
+      },
       properties: {
         /**
          * The value for this element that will be used when submitting in
@@ -101,7 +107,7 @@
           type: String,
           notify: true,
           readOnly: true
-        }
+        },
       }
     });
   </script>

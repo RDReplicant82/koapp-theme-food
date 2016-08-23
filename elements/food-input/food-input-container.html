@@ -8,8 +8,10 @@
     <style>
       :host {
         display: block;
-        padding: 8px 0;
-
+        position: relative;
+        padding: 5px 15px;
+        border: 2px solid #ff540e;
+        border-radius: 30px;
         @apply(--input-container);
       }
 
@@ -25,7 +27,7 @@
       }
 
       .underline {
-        position: relative;
+        display: none;
       }
 
       .focused-line {
@@ -55,7 +57,7 @@
       .unfocused-line {
         @apply(--layout-fit);
 
-        background: var(--input-container-color, --secondary-text-color);
+        background: var(--input-container-color,  --primary-text-color);
         height: 1px;
 
         @apply(--input-container-underline);
@@ -64,14 +66,17 @@
       :host([disabled]) .unfocused-line {
         background: transparent;
         border-bottom: 1px dashed;
-        border-color: var(--input-container-color, --secondary-text-color);
+        border-color: var(--input-container-color,  --primary-text-color);
 
         @apply(--input-container-underline-disabled);
       }
 
       ::content label {
-        color: var(--input-container-color, --secondary-text-color);
+        color: var(--input-container-color,  --primary-text-color);
         font: inherit;
+        left: 15px;
+        font-size: 18px;
+        position: absolute;
         width: 100%;
 
         @apply(--input-container-label);
